@@ -26,7 +26,7 @@ class RateCard(){
   }
 }
 
-class Hotel(name : String, rating : Int){
+case class Hotel(name : String, rating : Int){
 
   private val rateCard = new RateCard()
 
@@ -39,19 +39,19 @@ class Hotel(name : String, rating : Int){
   }
 
 }
-
 class Manager(){
-
   private var hotels = List[Hotel]()
   def manage (hotel : Hotel) ={
     hotels = hotels :+ hotel
   }
-
   def getCheapestHotel(customer: Customer, days: Seq[Day]) : Hotel = {
-    
+
+    val costsOfAllHotels = hotels.map(hotel => hotel.getTotalCost(customer, days))
+    val min = costsOfAllHotels.min
+    val hotelsWithMinimumCost: List[Hotel] = hotels.filter(hotel => hotel.getTotalCost(customer, days)<=min)
+    hotelsWithMinimumCost(0)
   }
 }
-
 val lakewood = new Hotel("Lakewood", 3)
 val bridgewood = new Hotel("Bridgewood", 4)
 val ridgewood = new Hotel("Ridgewood", 5)
@@ -70,13 +70,11 @@ ridgewood.addRate(new Rate(Regular, Weekday, 220))
 ridgewood.addRate(new Rate(Rewards, Weekday, 100))
 ridgewood.addRate(new Rate(Regular, Weekend, 150))
 ridgewood.addRate(new Rate(Rewards, Weekend, 40))
-
 val manager = new Manager()
 manager.manage(lakewood)
 manager.manage(bridgewood)
 manager.manage(ridgewood)
 val days = Seq(Weekday, Weekday, Weekend)
 manager.getCheapestHotel(Regular, days)
-
 //val cost: Int = lakewood.getTotalCost(Regular, days)
 //val cost1: Int = lakewood.getTotalCost(Rewards, days)
