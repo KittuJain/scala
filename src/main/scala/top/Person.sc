@@ -1,4 +1,6 @@
-class Person(val name : String){
-//  name = "krati"
+class Person(name : String, age: Int)
+
+object Person{
+  def apply(name: String, age: Int) = new Person(name, age)
 }
-new Person("Krati").name
+val p = Person("krati", 20)

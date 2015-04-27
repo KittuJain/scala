@@ -45,7 +45,7 @@ class Manager(){
     hotels = hotels :+ hotel
   }
   def getCheapestHotel(customer: Customer, days: Seq[Day]) : Hotel = {
-
+//    hotels.minBy(hotel=> hotel.getTotalCost(customer, days), -hotel.rating)
     val costsOfAllHotels = hotels.map(hotel => hotel.getTotalCost(customer, days))
     val min = costsOfAllHotels.min
     val hotelsWithMinimumCost: List[Hotel] = hotels.filter(hotel => hotel.getTotalCost(customer, days)<=min)
@@ -75,6 +75,6 @@ manager.manage(lakewood)
 manager.manage(bridgewood)
 manager.manage(ridgewood)
 val days = Seq(Weekday, Weekday, Weekend)
-manager.getCheapestHotel(Regular, days)
+manager.getCheapestHotel(Regular, days).name
 //val cost: Int = lakewood.getTotalCost(Regular, days)
 //val cost1: Int = lakewood.getTotalCost(Rewards, days)
