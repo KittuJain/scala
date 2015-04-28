@@ -4,7 +4,7 @@
 		module="scala-basics-5$sources_2.11"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20150427114729"
+		publication="20150428134600"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

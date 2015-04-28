@@ -8,7 +8,6 @@ val wordsFile = Source.fromFile("/Users/kratij/Documents/Practice/scala_basics/r
 val wordsOfBook = bookText.split("\\s+")
 val words = wordsOfBook.take(100).map(_.toLowerCase()).toList
 val stopWords = wordsFile.split("\\s+").map(_.toLowerCase()).toSet
-
 print("----------->>>>>>>>>>>>")
 
 words.filterNot(stopWords)
