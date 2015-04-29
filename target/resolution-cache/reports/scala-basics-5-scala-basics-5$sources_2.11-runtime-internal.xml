@@ -7,7 +7,7 @@
 		revision="0.1-SNAPSHOT"
 		conf="runtime-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20150428134600"/>
+		date="20150429105327"/>
 	<dependencies>
 		<module organisation="org.scala-lang" name="scala-reflect">
 			<revision name="2.11.1" status="release" pubdate="20140520133246" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.11.1/" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="8">
